@@ -5,7 +5,7 @@ const app = express();
 
 
 // dynamic base URL for API requests
-const generateUrl = (api_key) => `http://api.scraperapi.com?api_key=${API_KEY}&autoparse=true`;
+const generateUrl = (api_key) => `http://api.scraperapi.com?api_key=${api_key}&autoparse=true`;
 
 
 // connectint to port
