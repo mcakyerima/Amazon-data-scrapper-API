@@ -4,6 +4,7 @@ const request = require('request-promise');
 const app = express();
 
 
+
 // dynamic base URL for API requests
 const generateUrl = (api_key) => `http://api.scraperapi.com?api_key=${api_key}&autoparse=true`;
 
@@ -21,7 +22,7 @@ app.get('/' , (req, res) => {
 } );
 
 // fetching product deta🇮🇲 
-app.get('/products/:productId', async (req , res) => {
+app.get('/products/:productId', async (req , res) => { 
     // dynamically get request parameters
     const { productId } = req.params;
     const { api_key } = rep.query
