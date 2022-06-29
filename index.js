@@ -13,7 +13,7 @@ const generateUrl = (apiKey) => `http://api.scraperapi.com?api_key=${apiKey}&aut
 const PORT = process.env.PORT || 5000;
 
 // allow app to parse json input
-app.use(express.json());
+app.use(express.json()); 
 
 // default route
 app.get('/' , (req, res) => {
@@ -24,11 +24,13 @@ app.get('/' , (req, res) => {
 // fetching product deta🇮🇲 
 app.get('/products/:productId', async (req , res) => { 
     // dynamically get request parameters
+    const { api_key } = req.query;
+    console.log('api_key' , api_key);
     const { productId } = req.params;
-    const { api_key } = rep.query
+    
  
     try {
-        const response = await request(`${generateUrl(api_key)}&url=http://amazon.com/dp/${productId}`);
+        const response = await request(`${generateUrl(api_key)}&url=https://amazon.com/dp/${productId}`);
 
         // send back response
         res.json(JSON.parse(response));
@@ -36,10 +38,10 @@ app.get('/products/:productId', async (req , res) => {
     } catch (error) {
         res.json(error);
     }  
-});
-
-// fetching product reviews
-    // dynamically get request parameters
+});  
+  
+// fetching product reviews 
+    // dynamically get request parametersb  
 app.get('/products/:productId/reviews', async (req , res) => {
     const { productId } = req.params;
     const { api_key } = req.query
